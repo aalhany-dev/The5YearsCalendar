@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 5 Years Calendar | Perpetual Solar Tracking for the Global Economy</title>
-    <style>
+    <title>The 5 Years Leap Week Calendar | Perpetual Solar Tracking for the Global Economy</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+	<style>
         /* CSS Reset and Variables */
         :root {
             --primary-color: #0B2545; /* Deep Corporate Navy */
@@ -78,15 +79,12 @@
             margin-bottom: 40px;
             color: var(--primary-color);
         }
-		<div style="text-align: center; margin-bottom: 50px;">
-			<img src="grid-diagram.png" alt="Perpetual Calendar Grid Diagram" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-		</div>
 
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .card {
@@ -100,6 +98,106 @@
             color: var(--accent-color);
             margin-bottom: 15px;
             font-size: 1.4rem;
+        }
+
+        /* Visual Proof: The Perpetual Calendar Grid */
+        .visual-section {
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .visual-section h3 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .visual-section > p {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .cal-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            table-layout: fixed;
+        }
+
+        .cal-table th {
+            background-color: var(--primary-color);
+            color: #FFF;
+            padding: 12px;
+            font-size: 1.1rem;
+        }
+
+        .cal-table td {
+            border: 1px solid #E0E0E0;
+            padding: 20px 10px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .cal-table td:hover {
+            background-color: #EEF4F9;
+        }
+
+        /* Visual Proof: The 5-Year Cycle Timeline */
+        .cycle-grid {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .year-card {
+            flex: 1;
+            min-width: 140px;
+            background: #EEF4F9;
+            border: 2px solid var(--highlight-color);
+            border-radius: 8px;
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+        .year-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .year-card p {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .year-card.leap {
+            background: var(--primary-color);
+            color: #FFF;
+            border-color: var(--primary-color);
+            box-shadow: 0 6px 12px rgba(11, 37, 69, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .year-card.leap h4, .year-card.leap p {
+            color: #FFF;
+        }
+
+        .leap-badge {
+            display: block;
+            background: #FFD166;
+            color: #333;
+            font-size: 0.85rem;
+            padding: 6px 10px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-weight: bold;
         }
 
         /* Algorithm Section */
@@ -130,19 +228,16 @@
         }
 
         @media (max-width: 768px) {
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-            header h1 {
-                font-size: 2.2rem;
-            }
+            .grid-2 { grid-template-columns: 1fr; }
+            header h1 { font-size: 2.2rem; }
+            .cal-table th, .cal-table td { padding: 10px; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>The 5 Years Calendar</h1>
+        <h1>The 5 Years Leap Week Calendar</h1>
         <p>A perpetual, high-performance solar tracking system engineered to eliminate annual scheduling friction, streamline supply chains, and optimize global economic ledgers.</p>
         <a href="#contact" class="cta-button">Request a B2B Consultation</a>
     </header>
@@ -158,13 +253,67 @@
             </div>
             <div class="card">
                 <h3>The Structural Solution</h3>
-                <p>The 5 Years Calendar restructures the solar year into 13 identical months of exactly 28 days (364 days). This creates a permanent, locked grid where dates and days of the week never shift, preserving the unbroken 7-day cycle.</p>
+                <p>The 5 Years Leap Week Calendar restructures the solar year into 13 identical months of exactly 28 days (364 days). This creates a permanent, locked grid where dates and days of the week never shift, preserving the unbroken 7-day cycle.</p>
+            </div>
+        </div>
+
+        <div class="visual-section">
+            <h3>The Perpetual Month Grid</h3>
+            <p>13 identical months. Dates are permanently locked to weekdays.</p>
+            <table class="cal-table">
+                <thead>
+                    <tr>
+                        <th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
+                    </tr>
+                    <tr>
+                        <td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
+                    </tr>
+                    <tr>
+                        <td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td>
+                    </tr>
+                    <tr>
+                        <td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="visual-section" style="background: transparent; box-shadow: none; padding: 0;">
+            <h3>The 5-Year Intercalation Cycle</h3>
+            <p>Solving the astronomical deficit without breaking the 7-day framework.</p>
+            <div class="cycle-grid">
+                <div class="year-card">
+                    <h4>Year 1</h4>
+                    <p>364 Days<br>(13 Months)</p>
+                </div>
+                <div class="year-card">
+                    <h4>Year 2</h4>
+                    <p>364 Days<br>(13 Months)</p>
+                </div>
+                <div class="year-card">
+                    <h4>Year 3</h4>
+                    <p>364 Days<br>(13 Months)</p>
+                </div>
+                <div class="year-card">
+                    <h4>Year 4</h4>
+                    <p>364 Days<br>(13 Months)</p>
+                </div>
+                <div class="year-card leap">
+                    <h4>Year 5</h4>
+                    <p>371 Days</p>
+                    <span class="leap-badge">+ 7-Day Leap Week (Month 14)</span>
+                </div>
             </div>
         </div>
 
         <div class="algorithm-box">
             <h3>Flawless Astronomical Alignment</h3>
-            <p>To resolve the astronomical deficit without breaking the 7-day cycle, a 14th intercalary month consisting of exactly 7 days is applied via a strict mathematical algorithm:</p>
+            <p>To ensure long-term synchronization with the solar tropical year, the 7-day Leap Week is deployed via a strict mathematical algorithm:</p>
             <br>
             <ul>
                 <li><strong>Added</strong> every 5 years.</li>
@@ -172,20 +321,20 @@
                 <li><strong>Skipped</strong> every 400 years (with a 25-year offset).</li>
             </ul>
             <br>
-            <p><strong>Result:</strong> A mathematically clean 365.2425-day average year, ready for integration into automated smart contracts and ERP software.</p>
+            <p><strong>Result:</strong> A mathematically clean 365.2425-day average year, ready for seamless integration into automated smart contracts and ERP software.</p>
         </div>
 
         <div id="contact" style="text-align: center; margin-top: 40px;">
             <h2 class="section-title">Implement the Standard</h2>
-            <p style="margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">If you are a Supply Chain Director or CEO looking to audit your current scheduling inefficiencies, contact our team to review the Genesis initialization grids.</p>
-            <a href="mailto:aalhany@gmail.com" class="cta-button" style="background-color: var(--primary-color); color: #FFF;">Contact the Founder</a>
+            <p style="margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">If you are a Supply Chain Director or CEO looking to audit your current scheduling inefficiencies, contact our team to review the initialization grids.</p>
+            <a href="mailto:your_email@example.com" class="cta-button" style="background-color: var(--primary-color); color: #FFF;">Contact the Founder</a>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 The 5 Years Calendar System | <a href="http://www.expanding.space">expanding.space</a></p>
-        <p style="margin-top: 10px; font-size: 0.8rem; color: #8DA9C4;">Mathematical proofs and foundational architecture available upon formal request.</p>
+        <p>&copy; 2026 The 5 Years Leap Week Calendar System | <a href="http://www.expanding.space">expanding.space</a></p>
+        <p style="margin-top: 10px; font-size: 0.8rem; color: var(--highlight-color);">Foundational architecture and mathematical proofs available upon formal request.</p>
     </footer>
 
 </body>
