@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 5 Years Leap Week Calendar | Perpetual Solar Tracking for the Global Economy</title>
+    <title>The 5-Years Leap Week Calendar | Perpetual Solar Tracking</title>
     <link rel="icon" type="image/png" href="favicon.png">
-	<style>
+    <style>
         /* CSS Reset and Variables */
         :root {
             --primary-color: #0B2545; /* Deep Corporate Navy */
@@ -100,7 +100,7 @@
             font-size: 1.4rem;
         }
 
-        /* Visual Proof: The Perpetual Calendar Grid */
+        /* Visual Proof Sections */
         .visual-section {
             background: #FFFFFF;
             padding: 40px;
@@ -148,7 +148,7 @@
             background-color: #EEF4F9;
         }
 
-        /* Visual Proof: The 5-Year Cycle Timeline */
+        /* 5-Year Cycle Timeline */
         .cycle-grid {
             display: flex;
             gap: 15px;
@@ -206,6 +206,7 @@
             padding: 40px;
             border-left: 5px solid var(--primary-color);
             margin-bottom: 60px;
+            border-radius: 8px;
         }
 
         .algorithm-box h3 {
@@ -237,13 +238,40 @@
 <body>
 
     <header>
-        <h1>The 5 Years Leap Week Calendar</h1>
+        <h1>The 5-Years Leap Week Calendar</h1>
         <p>A perpetual, high-performance solar tracking system engineered to eliminate annual scheduling friction, streamline supply chains, and optimize global economic ledgers.</p>
         <a href="#contact" class="cta-button">Request a Consultation</a>
     </header>
-<div class="visual-section" style="background-color: #EEF4F9; border: 2px solid var(--highlight-color);">
-            <h3 style="margin-bottom: 5px;">The System Converter</h3>
-            <p>Select a date to see its exact coordinate across the Gregorian (/0), Islamic Lunar (/1), and 5 Years Leap Week Calendar (/2) systems.</p>
+
+    <div class="container">
+        
+        <div style="text-align: center; margin-bottom: 60px; padding: 0 20px;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 800px; margin: 0 auto; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); border: 4px solid #FFFFFF;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+                        src="https://www.youtube.com/embed/M49RyTlBsLQ?rel=0" 
+                        title="The 5-Year Leap Week Calendar Framework." 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <h2 class="section-title">The Cost of Asymmetry</h2>
+        
+        <div class="grid-2">
+            <div class="card">
+                <h3>The Gregorian Bottleneck</h3>
+                <p>Modern industries lose millions annually redesigning operational schedules. Asymmetrical months and shifting weekdays create severe compounding inefficiencies for supply chains, fiscal quarters, and academic institutions.</p>
+            </div>
+            <div class="card">
+                <h3>The Structural Solution</h3>
+                <p>The 5-Year Leap Week Calendar restructures the solar year into 13 identical months of exactly 28 days (364 days). This creates a permanent, locked grid where dates and days of the week never shift, preserving the unbroken 7-day cycle.</p>
+            </div>
+        </div>
+
+        <div class="visual-section" style="background-color: #EEF4F9; border: 2px solid var(--highlight-color);">
+            <h3 style="margin-bottom: 5px;">Date Converter</h3>
+            <p>Select a Gregorian date to see its exact coordinate across the Gregorian (/0), Islamic Lunar (/1), and 5-Year Leap Week Calendar (/2) systems.</p>
             
             <div style="text-align: center; margin-top: 25px;">
                 <input type="date" id="gregorianInput" value="2025-12-21" style="padding: 12px; font-size: 1.1rem; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-stack);">
@@ -266,117 +294,10 @@
                 </div>
 
                 <div>
-                    <p style="font-size: 0.85rem; color: var(--primary-color); text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">5 Years Leap Week Calendar (Solar Grid)</p>
+                    <p style="font-size: 0.85rem; color: var(--primary-color); text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">5-Years Leap Week Calendar (Solar Grid)</p>
                     <h4 id="out5Y" style="font-size: 1.8rem; color: var(--accent-color); font-family: monospace; font-weight: bold;">--</h4>
                     <p id="leapIndicator" style="font-size: 0.9rem; color: #2E7D32; margin-top: 5px; font-weight: bold;"></p>
                 </div>
-
-            </div>
-        </div>
-
-        <script>
-            function calculateTriDate() {
-                const inputVal = document.getElementById('gregorianInput').value;
-                if (!inputVal) return;
-
-                const inputParts = inputVal.split('-');
-                // Force UTC to prevent timezone shifts
-                const dateObj = new Date(Date.UTC(inputParts[0], inputParts[1] - 1, inputParts[2]));
-                
-                // 1. Calculate Gregorian /0
-                const gDay = String(dateObj.getUTCDate()).padStart(2, '0');
-                const gMonth = String(dateObj.getUTCMonth() + 1).padStart(2, '0');
-                const gYear = dateObj.getUTCFullYear();
-                const str0 = `${gDay}/${gMonth}/${gYear}/0`;
-
-                // 2. Calculate Islamic /1
-                // Using the native browser Intl API for Umm al-Qura calendar
-                const islamicFormatter = new Intl.DateTimeFormat('en-US-u-ca-islamic-umalqura', {
-                    timeZone: 'UTC', day: '2-digit', month: 'numeric', year: 'numeric'
-                });
-                const iParts = islamicFormatter.formatToParts(dateObj);
-                let iDay = iParts.find(p => p.type === 'day').value.padStart(2, '0');
-                let iMonth = iParts.find(p => p.type === 'month').value.padStart(2, '0');
-                let iYear = iParts.find(p => p.type === 'year').value.split(' ')[0]; // Strips "AH"
-                const str1 = `${iDay}/${iMonth}/${iYear}/1`;
-
-                // 3. Calculate 5 Years Calendar /2
-                // Epoch: 21/12/2025 = 01/01/2026/2
-                const epochDate = new Date(Date.UTC(2025, 11, 21)); 
-                const daysDiff = Math.floor((dateObj - epochDate) / 86400000);
-
-                let str2 = "";
-                let leapMsg = "";
-
-                if (daysDiff < 0) {
-                    str2 = "Pre-Genesis Phase";
-                    leapMsg = "Dates prior to 21/12/2025/0 are not mapped in this prototype.";
-                } else {
-                    let currentYear = 2026;
-                    let daysRemaining = daysDiff;
-                    let isLeap = false;
-
-                    // Iterate years forward from Epoch
-                    while (true) {
-                        isLeap = false;
-                        // The exact 5YLW Intercalation Algorithm
-                        if (currentYear % 5 === 0) {
-                            isLeap = true;
-                            if (currentYear % 50 === 0) {
-                                isLeap = false;
-                            }
-                            if ((currentYear - 25) % 400 === 0) {
-                                isLeap = false;
-                            }
-                        }
-
-                        let yearLength = isLeap ? 371 : 364;
-
-                        if (daysRemaining >= yearLength) {
-                            daysRemaining -= yearLength;
-                            currentYear++;
-                        } else {
-                            break;
-                        }
-                    }
-
-                    // Calculate Month and Day in the current 5YLW year
-                    let month = Math.floor(daysRemaining / 28) + 1;
-                    let day = (daysRemaining % 28) + 1;
-
-                    let yDay = String(day).padStart(2, '0');
-                    let yMonth = String(month).padStart(2, '0');
-                    str2 = `${yDay}/${yMonth}/${currentYear}/2`;
-                    
-                    if (isLeap && month === 14) {
-                        leapMsg = "⭐ Leap Week Active (Month 14)";
-                    } else if (isLeap) {
-                        leapMsg = "Leap Year Schedule (371 Days)";
-                    } else {
-                        leapMsg = "Standard Year Schedule (364 Days)";
-                    }
-                }
-
-                // Display Results
-                document.getElementById('outputDisplay').style.display = "block";
-                document.getElementById('outGregorian').innerText = str0;
-                document.getElementById('outIslamic').innerText = str1;
-                document.getElementById('out5Y').innerText = str2;
-                document.getElementById('leapIndicator').innerText = leapMsg;
-            }
-        </script>
-    <div class="container">
-        
-        <h2 class="section-title">The Cost of Asymmetry</h2>
-        
-        <div class="grid-2">
-            <div class="card">
-                <h3>The Gregorian Bottleneck</h3>
-                <p>Modern industries lose millions annually redesigning operational schedules. Asymmetrical months and shifting weekdays create severe compounding inefficiencies for supply chains, fiscal quarters, and academic institutions.</p>
-            </div>
-            <div class="card">
-                <h3>The Structural Solution</h3>
-                <p>The 5 Years Leap Week Calendar restructures the solar year into 13 identical months of exactly 28 days (364 days). This creates a permanent, locked grid where dates and days of the week never shift, preserving the unbroken 7-day cycle.</p>
             </div>
         </div>
 
@@ -444,30 +365,19 @@
                 <li><strong>Skipped</strong> every 400 years (with a 25-year offset).</li>
             </ul>
             <br>
-            <p><strong>Result:</strong> A mathematically clean 365.2425-day average year, ready for seamless integration into automated smart contracts and ERP software.</p>
-       	
-	<div style="text-align: center; margin-top: -30px; margin-bottom: 50px; padding: 0 20px;">
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 800px; margin: 0 auto; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); border: 4px solid #FFFFFF;">
-                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
-                        src="https://www.youtube.com/embed/M49RyTlBsLQ?rel=0" 
-                        title="The 5-Year Leap Week Calendar Framework." 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
-            </div>
+            <p><strong>Result:</strong> A mathematically clean 365.2425-day average year, "as accurate as the Gregorian Calendar". Ready for seamless integration into automated smart contracts and ERP software.</p>
         </div>
-<div style="text-align: center; margin-top: 60px; margin-bottom: 60px; background-color: #FFFFFF; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+
+        <div style="text-align: center; margin-bottom: 60px; background-color: #FFFFFF; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
             <h2 class="section-title" style="margin-bottom: 20px;">Formal Documentation</h2>
-            <p style="margin-bottom: 30px; color: #555; max-width: 600px; margin-left: auto; margin-right: auto;"> download the functional 5-year (2026 ~ 2030) grid.</p>
+            <p style="margin-bottom: 30px; color: #555; max-width: 600px; margin-left: auto; margin-right: auto;">Download the functional 5-year (2026 ~ 2030) grid.</p>
             
             <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                                
                 <a href="Grid-Template.xlsx" download class="cta-button" style="background-color: #2E7D32;">
                     📊 Download Calendar Grid (Excel)
                 </a>
             </div>
         </div>
-			 </div>
 
         <div id="contact" style="text-align: center; margin-top: 40px;">
             <h2 class="section-title">Implement the Standard</h2>
@@ -476,13 +386,95 @@
         </div>
 
     </div>
+
     <footer>
-        <p>&copy; 2026 The 5 Years Leap Week Calendar System | <a href="http://www.expanding.space">expanding.space</a></p>
+        <p>&copy; 2026 The 5-Years Leap Week Calendar System | <a href="http://www.expanding.space">expanding.space</a></p>
         <p style="margin-top: 10px; font-size: 0.8rem; color: var(--highlight-color);">Foundational architecture and mathematical proofs available upon formal request.</p>
     </footer>
 
+    <script>
+        function calculateTriDate() {
+            const inputVal = document.getElementById('gregorianInput').value;
+            if (!inputVal) return;
+
+            const inputParts = inputVal.split('-');
+            const dateObj = new Date(Date.UTC(inputParts[0], inputParts[1] - 1, inputParts[2]));
+            
+            // 1. Calculate Gregorian /0
+            const gDay = String(dateObj.getUTCDate()).padStart(2, '0');
+            const gMonth = String(dateObj.getUTCMonth() + 1).padStart(2, '0');
+            const gYear = dateObj.getUTCFullYear();
+            const str0 = `${gDay}/${gMonth}/${gYear}/0`;
+
+            // 2. Calculate Islamic /1
+            const islamicFormatter = new Intl.DateTimeFormat('en-US-u-ca-islamic-umalqura', {
+                timeZone: 'UTC', day: '2-digit', month: 'numeric', year: 'numeric'
+            });
+            const iParts = islamicFormatter.formatToParts(dateObj);
+            let iDay = iParts.find(p => p.type === 'day').value.padStart(2, '0');
+            let iMonth = iParts.find(p => p.type === 'month').value.padStart(2, '0');
+            let iYear = iParts.find(p => p.type === 'year').value.split(' ')[0]; 
+            const str1 = `${iDay}/${iMonth}/${iYear}/1`;
+
+            // 3. Calculate 5 Years Calendar /2
+            const epochDate = new Date(Date.UTC(2025, 11, 21)); 
+            const daysDiff = Math.floor((dateObj - epochDate) / 86400000);
+
+            let str2 = "";
+            let leapMsg = "";
+
+            if (daysDiff < 0) {
+                str2 = "Pre-Genesis Phase";
+                leapMsg = "Dates prior to 21/12/2025/0 are not mapped in this prototype.";
+            } else {
+                let currentYear = 2026;
+                let daysRemaining = daysDiff;
+                let isLeap = false;
+
+                while (true) {
+                    isLeap = false;
+                    if (currentYear % 5 === 0) {
+                        isLeap = true;
+                        if (currentYear % 50 === 0) {
+                            isLeap = false;
+                        }
+                        if ((currentYear - 25) % 400 === 0) {
+                            isLeap = false;
+                        }
+                    }
+
+                    let yearLength = isLeap ? 371 : 364;
+
+                    if (daysRemaining >= yearLength) {
+                        daysRemaining -= yearLength;
+                        currentYear++;
+                    } else {
+                        break;
+                    }
+                }
+
+                let month = Math.floor(daysRemaining / 28) + 1;
+                let day = (daysRemaining % 28) + 1;
+
+                let yDay = String(day).padStart(2, '0');
+                let yMonth = String(month).padStart(2, '0');
+                str2 = `${yDay}/${yMonth}/${currentYear}/2`;
+                
+                if (isLeap && month === 14) {
+                    leapMsg = "⭐ Leap Week Active (Month 14)";
+                } else if (isLeap) {
+                    leapMsg = "Leap Year Schedule (371 Days)";
+                } else {
+                    leapMsg = "Standard Year Schedule (364 Days)";
+                }
+            }
+
+            document.getElementById('outputDisplay').style.display = "block";
+            document.getElementById('outGregorian').innerText = str0;
+            document.getElementById('outIslamic').innerText = str1;
+            document.getElementById('out5Y').innerText = str2;
+            document.getElementById('leapIndicator').innerText = leapMsg;
+        }
+    </script>
 </body>
 </html>
-
-
-
