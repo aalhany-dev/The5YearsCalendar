@@ -30,12 +30,13 @@
             background-color: #FAFAFA;
         }
 
-        /* Header / Hero Section */
+        /* Updated Header with Enhanced Logo Contrast */
         header {
-            background-color: var(--primary-color);
-            color: var(--text-light);
+            background-color: #2D3E50; /* Optimized Charcoal-Slate Gray */
+            color: #EEF4F9; /* Enhanced Contrast Light Gray Text */
             padding: 100px 20px;
             text-align: center;
+            border-bottom: 2px solid var(--primary-color); /* Maintain Navy Accent */
         }
 
         header h1 {
@@ -430,33 +431,39 @@
             let iYear = iParts.find(p => p.type === 'year').value.split(' ')[0]; 
             const str1 = `${iDay}/${iMonth}/${iYear}/1`;
 
-            // 3. Calculate 5 Years Calendar /2
+            // 3. Calculate 5 Years Calendar /2 (Bi-Directional)
             const epochDate = new Date(Date.UTC(2025, 11, 21)); 
             const daysDiff = Math.floor((dateObj - epochDate) / 86400000);
 
             let str2 = "";
             let leapMsg = "";
+            let currentYear;
+            let month;
+            let day;
+            let isLeap = false;
 
-            if (daysDiff < 0) {
-                str2 = "Pre-Genesis Phase";
-                leapMsg = "Dates prior to 21/12/2025/0 are not mapped in this prototype.";
-            } else {
-                let currentYear = 2026;
+            // FUNCTION: Check if a given 5YLW year is a Leap Year
+            function checkLeapRule(y) {
+                let leap = false;
+                if (y % 5 === 0) {
+                    leap = true;
+                    if (y % 50 === 0) {
+                        leap = false;
+                    }
+                    if ((y - 25) % 400 === 0) {
+                        leap = false;
+                    }
+                }
+                return leap;
+            }
+
+            if (daysDiff >= 0) {
+                // FORWARD CALCULATION (Post-Epoch)
+                currentYear = 2026;
                 let daysRemaining = daysDiff;
-                let isLeap = false;
 
                 while (true) {
-                    isLeap = false;
-                    if (currentYear % 5 === 0) {
-                        isLeap = true;
-                        if (currentYear % 50 === 0) {
-                            isLeap = false;
-                        }
-                        if ((currentYear - 25) % 400 === 0) {
-                            isLeap = false;
-                        }
-                    }
-
+                    isLeap = checkLeapRule(currentYear);
                     let yearLength = isLeap ? 371 : 364;
 
                     if (daysRemaining >= yearLength) {
@@ -467,22 +474,45 @@
                     }
                 }
 
-                let month = Math.floor(daysRemaining / 28) + 1;
-                let day = (daysRemaining % 28) + 1;
+                month = Math.floor(daysRemaining / 28) + 1;
+                day = (daysRemaining % 28) + 1;
 
-                let yDay = String(day).padStart(2, '0');
-                let yMonth = String(month).padStart(2, '0');
-                str2 = `${yDay}/${yMonth}/${currentYear}/2`;
-                
-                if (isLeap && month === 14) {
-                    leapMsg = "⭐ Leap Week Active (Month 14)";
-                } else if (isLeap) {
-                    leapMsg = "Leap Year Schedule (371 Days)";
-                } else {
-                    leapMsg = "Standard Year Schedule (364 Days)";
+            } else {
+                // REVERSE CALCULATION (Pre-Epoch)
+                let daysRemaining = Math.abs(daysDiff);
+                currentYear = 2025; // Step backward into the year preceding the epoch
+
+                while (true) {
+                    isLeap = checkLeapRule(currentYear);
+                    let yearLength = isLeap ? 371 : 364;
+
+                    if (daysRemaining > yearLength) {
+                        daysRemaining -= yearLength;
+                        currentYear--;
+                    } else {
+                        // Calculate coordinates backward from the end of the year
+                        let daysIntoYear = yearLength - daysRemaining;
+                        month = Math.floor(daysIntoYear / 28) + 1;
+                        day = (daysIntoYear % 28) + 1;
+                        break;
+                    }
                 }
             }
 
+            // Output Formatting
+            let yDay = String(day).padStart(2, '0');
+            let yMonth = String(month).padStart(2, '0');
+            str2 = `${yDay}/${yMonth}/${currentYear}/2`;
+            
+            if (isLeap && month === 14) {
+                leapMsg = "⭐ Leap Week Active (Month 14)";
+            } else if (isLeap) {
+                leapMsg = "Leap Year Schedule (371 Days)";
+            } else {
+                leapMsg = "Standard Year Schedule (364 Days)";
+            }
+
+            // Display Results
             document.getElementById('outputDisplay').style.display = "block";
             document.getElementById('outGregorian').innerText = str0;
             document.getElementById('outIslamic').innerText = str1;
@@ -492,5 +522,6 @@
     </script>
 </body>
 </html>
+
 
 
